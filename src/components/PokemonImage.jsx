@@ -6,8 +6,8 @@ export default function PokemonImage({ image, name }) {
     <Image
       src={image}
       alt={"Imagen de " + name}
-      width={200}
-      height={200}
+      width={250}
+      height={250}
       priority
     />
   );

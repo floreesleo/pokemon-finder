@@ -1,7 +1,8 @@
 import { getPokemon } from "@/lib/pokemonList";
 import PokemonImage from "@/components/PokemonImage";
-import { Progress } from "@/components/ui/progress";
 import PokemonStats from "@/components/PokemonStats";
+import { Suspense } from "react";
+import PokemonList from "@/components/PokemonList";
 
 export default async function page({ params }) {
   //? params recibe el nombre que se pasa a la url del proyecto, por ejemplo:
@@ -36,6 +37,10 @@ export default async function page({ params }) {
           })}
         </div>
       </div>
+      <h3>Otros Pokemon</h3>
+      <Suspense fallback={<div>Cargando otros Pokemon...</div>}>
+        <PokemonList />
+      </Suspense>
     </div>
   );
 }

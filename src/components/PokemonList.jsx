@@ -19,7 +19,7 @@ export default function PokemonList() {
     <div className="grid md:grid-cols-3 grid-cols-2 lg:grid-cols-4 gap-2">
       {pokemones.map((pokemon) => (
         <div className="mx-2 my-1">
-          <PokemonCard name={pokemon.name} key={pokemon.name} />
+          <PokemonCard key={pokemon.name} name={pokemon.name} />
         </div>
       ))}
     </div>

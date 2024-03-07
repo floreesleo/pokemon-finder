@@ -1,5 +1,5 @@
 import { getPokemon } from "@/lib/pokemonList";
-import Image from "next/image";
+import PokemonImage from "@/components/PokemonImage";
 
 export default async function page({ params }) {
   //? params recibe el nombre que se pasa a la url del proyecto, por ejemplo:
@@ -16,12 +16,9 @@ export default async function page({ params }) {
         <h2 className="text-3xl font-black">
           {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
         </h2>
-
-        <Image
-          src={pokemonObject.sprites.other["official-artwork"].front_default}
-          alt={"Imagen de " + pokemonName}
-          width={200}
-          height={200}
+        <PokemonImage
+          image={pokemonObject.sprites.other["official-artwork"].front_default}
+          name={pokemonName}
         />
       </div>
     </div>

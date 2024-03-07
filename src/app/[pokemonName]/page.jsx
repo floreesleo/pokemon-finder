@@ -1,5 +1,6 @@
 import { getPokemon } from "@/lib/pokemonList";
 import PokemonImage from "@/components/PokemonImage";
+import { Progress } from "@/components/ui/progress";
 
 export default async function page({ params }) {
   //? params recibe el nombre que se pasa a la url del proyecto, por ejemplo:
@@ -20,6 +21,23 @@ export default async function page({ params }) {
           image={pokemonObject.sprites.other["official-artwork"].front_default}
           name={pokemonName}
         />
+        <h3>Weight: {pokemonObject.weight}</h3>
+
+        <div className="flex flex-col">
+          {pokemonObject.stats.map((statObject) => {
+            const statName = statObject.stat.name;
+            const statValue = statObject.base_stat;
+
+            return (
+              <div key={statName} className="flex items-stretch">
+                <h3 className="p-2 w-2/4">
+                  {statName}: {statValue}
+                </h3>
+                <Progress value={statValue} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
